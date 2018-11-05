@@ -5,7 +5,7 @@
             <tr v-for="item in items">
                 <td>{{ item.date }}</td>
                 <td>{{ item.task}}</td>
-                <td><button>-</button></td>
+                <td><button v-on:click="removeItem(item)">-</button></td>
             </tr>
         </table>
     </div>
@@ -28,7 +28,27 @@ export default {
                 },
             ],
         }
+    },
+    methods: {
+        saveItem: function(){
+            this.newItem.date = this.getDate;
+            this.items.push(this.newItem);
+            this.newItem = {};
+        },
+        removeItem: function(item){
+            this.items.splice(this.items.indexOf(item), 1);
+        }
+    },
+    computed: {
+        getDate: function(){
+            var date = new Date();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+            var date = date.getDate();
+            return month + '/' + date + '/' + year;
+        }
     }
+
 }
 </script>
 
