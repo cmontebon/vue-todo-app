@@ -1,17 +1,18 @@
 <template>
   <div id="app">
+    <h1>VueJS To-Do App</h1>
     <img src="./assets/logo.png">
-    <h1>Vue To-Do App</h1>
+    <todo-list></todo-list>
   </div>
 </template>
 
 <script>
-
+import TodoList from './components/todolist'
 
 export default {
   name: 'App',
   components: {
-    
+    TodoList
   }
 }
 </script>
